@@ -3,6 +3,7 @@ package com.example.assistivevision
 import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.mlkit.vision.label.ImageLabel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -14,30 +15,14 @@ data class DetectedObjectUi(
 
 data class ObjectDetectionUiState(
     val isLoading: Boolean = false,
-    val detectedObjects: List<DetectedObjectUi> = emptyList(),
+    val detectedObjects: ImageLabel? = null,
     val error: String? = null
 )
 
 class ObjectDetectionViewModel : ViewModel() {
 
-    private val _uiState =
-        MutableStateFlow(ObjectDetectionUiState())
-    val uiState: StateFlow<ObjectDetectionUiState> = _uiState
-
     /**
      * This will later trigger ML Kit object detection.
-     * For now, it just shows loading state.
      */
 
-    fun detectObjects(bitmap: Bitmap) {
-        viewModelScope.launch {
-            _uiState.value = ObjectDetectionUiState(
-                isLoading = true
-            )
-        }
-    }
-
-    fun reset() {
-        _uiState.value = ObjectDetectionUiState()
-    }
 }

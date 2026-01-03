@@ -55,7 +55,7 @@ dependencies {
     // ViewModel (Compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     // ML Kit — Object Detection
-    implementation(libs.object1.detection)
+    implementation("com.google.mlkit:image-labeling:17.0.9")
     // Image loading (Gallery preview)
     implementation(libs.coil.compose)
 
