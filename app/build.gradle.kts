@@ -58,6 +58,8 @@ dependencies {
     implementation("com.google.mlkit:image-labeling:17.0.9")
     // Image loading (Gallery preview)
     implementation(libs.coil.compose)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui.graphics)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
